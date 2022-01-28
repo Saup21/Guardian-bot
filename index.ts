@@ -1,5 +1,6 @@
 import Discord, { Intents, User } from 'discord.js';
 import config from './config/index'
+import isValidUrl from './utils/isValidUrl';
 
 const client = new Discord.Client({
     intents: [
@@ -13,14 +14,18 @@ client.on('ready', async () => {
 });
 
 client.on('messageCreate', async (message) => {
-    if(message.content === 'spam') {
+    let msg: string = message.content;
+    if(isValidUrl(msg)) {
         console.log(message);
-        message.delete()
+        await message.delete()
             .then( msg => {
                 console.log(`Deleted ${msg.author.username}'s message`);
-                msg.channel.send(`Booooo spammer ${msg.mentions}`);
+                msg.channel.send(`Booooo spammer ${msg.author}`);
                 
             })
+            .catch( err => {
+                console.log(err.message);
+            });
     }
 });
 
