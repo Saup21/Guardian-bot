@@ -14,12 +14,13 @@ client.on('ready', async () => {
 });
 
 client.on('messageCreate', async (message) => {
-    let msg: string = message.content;
-    if(isValidUrl(msg)) {
-        console.log(message);
+    const { content }: { content: string } = message;
+    let matches = isValidUrl(content);
+    if(matches.length !== 0) {
+        console.log(matches);
+        
         await message.delete()
             .then( msg => {
-                console.log(`Deleted ${msg.author.username}'s message`);
                 msg.channel.send(`Booooo spammer ${msg.author}`);
                 
             })

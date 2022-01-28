@@ -5,7 +5,16 @@ const isValidUrl = (s: string) => {
 
     // /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/gm
 
-    return matchpattern.test(s);
+    let matches: string[] = [];
+    let split_s = s.split(" ");
+
+    split_s.forEach( (check: string) => {
+        if(matchpattern.test(check)) {
+            matches.push(check);
+        }
+    });
+
+    return matches;
 }
 
 export default isValidUrl;
