@@ -1,7 +1,7 @@
 import Discord, { Intents, User } from 'discord.js';
 import config from './config/index'
-import isValidUrl from './utils/isValidUrl';
-import checkMatchedUrl from './utils/checkMatchedUrl';
+import isValidUrl from './scripts/isValidUrl';
+import checkMatchedUrl from './scripts/checkMatchedUrl';
 
 const client = new Discord.Client({
     intents: [
