@@ -1,6 +1,7 @@
 import Discord, { Intents, User } from 'discord.js';
 import config from './config/index'
 import isValidUrl from './utils/isValidUrl';
+import checkMatchedUrl from './utils/checkMatchedUrl';
 
 const client = new Discord.Client({
     intents: [
@@ -15,18 +16,19 @@ client.on('ready', async () => {
 
 client.on('messageCreate', async (message) => {
     const { content }: { content: string } = message;
-    let matches = isValidUrl(content);
+    let matches: string[] = isValidUrl(content);
     if(matches.length !== 0) {
-        console.log(matches);
         
-        await message.delete()
-            .then( msg => {
-                msg.channel.send(`Booooo spammer ${msg.author}`);
+        checkMatchedUrl(matches);
+        
+        // await message.delete()
+        //     .then( msg => {
+        //         msg.channel.send(`Booooo spammer ${msg.author}`);
                 
-            })
-            .catch( err => {
-                console.log(err.message);
-            });
+        //     })
+        //     .catch( err => {
+        //         console.log(err.message);
+        //     });
     }
 });
 
