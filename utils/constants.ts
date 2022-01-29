@@ -1,6 +1,6 @@
 // Threat Message 
 
-export const MALICIOUS_LINK: string = `sent malicious link.`;
+export const MALICIOUS_LINK: string = `sent malicious link(s).`;
 export const NSFW: string = `The above link(s) might contain NSFW contents. Please be cautious before opening the link.`;
 export const SPAM: string = `The above link(s) might be spam. Please be cautious before opening the link.`;
 export const SUSPICIOUS: string = `The above link(s) is/are suspicious. Please be cautious before opening the link.`;

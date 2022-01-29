@@ -11,24 +11,55 @@ const client = new Discord.Client({
 });
 
 client.on('ready', async () => {
-    console.log(`NoSpam is ready to protect`);
+    console.log(`Guardian-bot is ready to protect`);
 });
 
 client.on('messageCreate', async (message) => {
+
+    if(message.author.bot) { 
+        return;
+    }
+
     const { content }: { content: string } = message;
     let matches: string[] = isValidUrl(content);
     if(matches.length !== 0) {
         
-        checkMatchedUrl(matches);
+        let result: any = await checkMatchedUrl(matches);
+
+        console.log(result);
+
+        if(result == undefined) {
+            console.log('Everything is safe');
+            return;
+        }
         
-        // await message.delete()
-        //     .then( msg => {
-        //         msg.channel.send(`Booooo spammer ${msg.author}`);
-                
-        //     })
-        //     .catch( err => {
-        //         console.log(err.message);
-        //     });
+        if(!result.success) {
+            message.reply({
+                content: result.msg
+            });
+        } else {
+            const {
+                threat_code,
+                msg
+            }: {
+                threat_code: number,
+                msg: string
+            } = result;
+
+            if(threat_code === 101 || threat_code === 103 || threat_code === 104) {
+                await message.delete()
+                    .then( deleted_msg => {
+                        deleted_msg.channel.send(`${deleted_msg.author} ${msg}`);  
+                    })
+                    .catch( err => {
+                        console.log(err.message);
+                    });
+            } else {
+                message.reply({
+                    content: msg
+                });
+            }
+        }
     }
 });
 

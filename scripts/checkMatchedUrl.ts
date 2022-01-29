@@ -55,7 +55,7 @@ const typeOfThreat = (data: any) => {
     } else if ( suspicious ) {
         result.threat_code = 105;
         result.msg = SUSPICIOUS;
-    } else if ( risk_score ) {
+    } else if ( risk_score > 85 ) {
         result.threat_code = 107;
         result.msg = HIGH_RISK;
     } else {
@@ -88,11 +88,9 @@ const checkMatchedUrl = async ( matches: string[] ) => {
         // console.log(data);
         
         if(!data.success) {
-            const msg: string = OUT_OF_CREDIT;
-
             return {
                 success: false,
-                msg
+                msg: OUT_OF_CREDIT
             };
         }
         
