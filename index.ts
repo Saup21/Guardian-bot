@@ -11,7 +11,7 @@ const client = new Discord.Client({
 });
 
 client.on('ready', async () => {
-    console.log(`No Spam is ready to protect`);
+    console.log(`NoSpam is ready to protect`);
 });
 
 client.on('messageCreate', async (message) => {
