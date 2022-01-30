@@ -8,8 +8,8 @@
     "dev": "nodemon index.ts"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Sauparna Gupta",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.25.0",
     "discord.js": "^13.6.0",
