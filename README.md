@@ -15,7 +15,7 @@
     ·
     <a href="https://github.com/Saup21/Guardian-bot/issues">Request Feature</a>
     <!-- .
-    <a href="https://github.com/amanjha8100/chords/blob/main/doc/deploy.md">Deploy Walkthrough</a> -->
+    <a href="https://github.com/Saup21/chords/blob/main/doc/deploy.md">Deploy Walkthrough</a> -->
   </h3>
 </p>
 
@@ -36,11 +36,11 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#available-bot-commands">Bot Commands</a></li>
     <li><a href="#configuration---discord-developer-portal">Configuration - Discord Developer Portal</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
+    <li><a href="#contributors">Contributors</a></li>
   </ol>
 </details>
 
@@ -78,9 +78,11 @@ To get a local copy up and running follow these simple steps.
 - Javascript (Must for Other Users)
 - Typescript (Must for Other Users)
 
+## Installation
+
 <img align="left" src="./icons/windows-icon-42331.png" width="30px" height="30px" />
 
-### Installation for Windows users
+### For Windows users
 
 1. Fork the project.
 2. Clone the forked repository.
@@ -120,7 +122,7 @@ To get a local copy up and running follow these simple steps.
 
 <img align="left" src="./icons/linux-logo.png" width="30px" height="30px" />
 
-### Installation for Linux users
+### For Linux users
 
 1. Fork the project.
 2. Clone the forked repository.
@@ -166,3 +168,55 @@ To get a local copy up and running follow these simple steps.
 Go to the [Discord Developer Portal](https://discord.com/developers/docs/intro) to create your application and bot. You must give the following permissions:
 
 - Admin Intent ✔️
+
+<!-- ROADMAP -->
+ <img align="left" src="./icons/road-map-icon.png" width="50px" height="50px"  />
+
+## Roadmap
+
+See the [open issues](https://github.com/Saup21/Guardian-bot/issues) for a list of proposed features (and known issues). Feel free to raise new issues.
+
+<!-- CONTRIBUTING -->
+ <img align="left" src="./icons/contributing.png" width="50px" height="50px" />
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch ( `git checkout -b feature/AmazingFeature` )
+3. Add your Changes ( `git add .` )
+4. Commit your Changes ( `git commit -m 'Add some AmazingFeature'` )
+5. Push to the Branch ( `git push -u origin feature/AmazingFeature` )
+6. Open a Pull Request
+
+
+<!-- LICENSE -->
+ <img align="left" src="./icons/license.png" width="50px" height="50px" />
+
+## License
+
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
+
+<!-- Contributors -->
+<img align="left" src="./icons/contributors.jpg" width="50px" height="50px" />
+
+## Contributors
+<table>
+  <tr>
+    <td>
+	  <a href="https://github.com/Saup21/Guardian-bot/graphs/contributors">
+        <img src="https://contrib.rocks/image?repo=Saup21/Code-Sandbox" />
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
+
+<p align="center">Saup21</p>
+<p align="center">
+<a href="https://github.com/Saup21/">
+<img src="https://user-images.githubusercontent.com/58631762/120077716-60cded80-c0c9-11eb-983d-80dfa5862d8a.png" width="19">
+</a>
+</p>
