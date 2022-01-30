@@ -26,8 +26,6 @@ client.on('messageCreate', async (message) => {
         
         let result: any = await checkMatchedUrl(matches);
 
-        console.log(result);
-
         if(result == undefined) {
             console.log('Everything is safe');
             return;
