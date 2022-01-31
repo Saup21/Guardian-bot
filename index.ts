@@ -1,7 +1,12 @@
-import Discord, { Intents, User } from 'discord.js';
+import Discord, { Intents } from 'discord.js';
 import config from './config/index'
 import isValidUrl from './scripts/isValidUrl';
 import checkMatchedUrl from './scripts/checkMatchedUrl';
+import { Result } from './utils/types';
+import { 
+    ERROR, 
+    READY 
+} from './utils/constants';
 
 const client = new Discord.Client({
     intents: [
@@ -11,7 +16,7 @@ const client = new Discord.Client({
 });
 
 client.on('ready', async () => {
-    console.log(`Guardian-bot is ready to protect`);
+    console.log(READY);
 });
 
 client.on('messageCreate', async (message) => {
@@ -21,37 +26,48 @@ client.on('messageCreate', async (message) => {
     }
 
     const { content }: { content: string } = message;
-    let matches: string[] = isValidUrl(content);
-    if(matches.length !== 0) {
+    const matches: string[] = isValidUrl(content);
+    if( matches.length > 0 ) {
         
-        let result: any = await checkMatchedUrl(matches);
-
-        if(result == undefined) {
-            console.log('Everything is safe');
-            return;
-        }
+        const result: Result = await checkMatchedUrl(matches);
+        const {
+            success,
+            threat_code,
+            msg,
+            error
+        }: {
+            success: boolean;
+            threat_code?: number;
+            msg: string;
+            error?: boolean 
+        } = result;
         
-        if(!result.success) {
-            message.reply({
-                content: result.msg
-            });
+        if(!success) {
+            if(error) {
+                console.log(msg);
+            } else {
+                message.reply({
+                    content: msg
+                });
+            }
         } else {
-            const {
-                threat_code,
-                msg
-            }: {
-                threat_code: number,
-                msg: string
-            } = result;
+
+            if(threat_code === 999) {
+                console.log(msg);
+                return;
+            }
 
             if(threat_code === 101 || threat_code === 103 || threat_code === 104) {
-                await message.delete()
-                    .then( deleted_msg => {
-                        deleted_msg.channel.send(`${deleted_msg.author} ${msg}`);  
-                    })
-                    .catch( err => {
-                        console.log(err.message);
-                    });
+                try {
+                    const deleted_msg = await message.delete();
+                    deleted_msg.channel.send(`${deleted_msg.author} ${msg}`);
+                } catch (error) {
+                    let errorMessage: string = ERROR;
+                    if (error instanceof Error) {
+                        errorMessage = error.message;
+                    }
+                    console.log(errorMessage);
+                }
             } else {
                 message.reply({
                     content: msg
