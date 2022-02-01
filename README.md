@@ -49,7 +49,7 @@
 
 ## About The Project
 
-A lot of phishing and spam urls are getting circulated these days. Those who are falling for the so called free gifts are ending up compromising their accounts.\
+A lot of phishing and spam urls are getting circulated on discord these days. Those who are falling for the so called free gifts are ending up compromising their accounts.\
 So I thought of making the *Guardian-bot* for our Discord Community.
 
 <img align="left" src="./icons/build-icon.png" width="30px" height="30px" round="-3px"/>
