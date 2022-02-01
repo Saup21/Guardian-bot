@@ -69,28 +69,28 @@ client.on('messageCreate', async (message) => {
                     if (error instanceof Error) {
                         errorMessage = error.message;
                     }
-                    consola.error(errorMessage) ;
+                    consola.error(errorMessage);
                 }
             } else {
-                const title: string = getTitle(msg) ;
+                const title: string = getTitle(msg);
                 const embeddedMessage = new MessageEmbed()
-                    .setColor('#ff0000')
+                    .setColor(`#ff0000`)
                     .setTitle(title)
                     .setAuthor({ 
-                        name: 'Guardian-bot', 
+                        name: `Guardian-bot`, 
                         // iconURL: './logo/Guardian-bot.png' , 
-                        url: "https://github.com/Saup21/Guardian-bot"
+                        url: `https://github.com/Saup21/Guardian-bot`
                     })
                     .addFields(
                         { 
-                            name: 'BEWARE !!!', 
+                            name: `BEWARE !!!`, 
                             value: msg
                         }
                     )
                     .setTimestamp()
                     .setFooter({ 
-                        text: 'Developed by Sauparna Gupta',
-                        iconURL: 'https://i.imgur.com/AfFp7pu.png' 
+                        text: `Developed by Sauparna Gupta`,
+                        iconURL: `https://i.imgur.com/AfFp7pu.png` 
                     });
                 message.reply({
                     embeds: [embeddedMessage]

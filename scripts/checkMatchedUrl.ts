@@ -132,7 +132,6 @@ const checkMatchedUrl = async ( matches: string[] ): Promise<Result> => {
             if (error instanceof Error) {
                 errorMessage = error.message;
             }
-            console.log(errorMessage);
             return {
                 success: false,
                 msg: errorMessage,
