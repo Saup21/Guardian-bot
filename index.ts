@@ -1,4 +1,6 @@
-import Discord, { Intents } from 'discord.js';
+import consola from 'consola' ;
+import { getTitle } from './utils/getTitle';
+import Discord, { Intents , MessageEmbed } from 'discord.js';
 import config from './config/index'
 import isValidUrl from './scripts/isValidUrl';
 import checkMatchedUrl from './scripts/checkMatchedUrl';
@@ -16,7 +18,8 @@ const client = new Discord.Client({
 });
 
 client.on('ready', async () => {
-    console.log(READY);
+    // console.log(READY);
+    consola.success(READY) ;
 });
 
 client.on('messageCreate', async (message) => {
@@ -44,7 +47,7 @@ client.on('messageCreate', async (message) => {
         
         if(!success) {
             if(error) {
-                console.log(msg);
+                consola.error(msg) ;
             } else {
                 message.reply({
                     content: msg
@@ -66,11 +69,31 @@ client.on('messageCreate', async (message) => {
                     if (error instanceof Error) {
                         errorMessage = error.message;
                     }
-                    console.log(errorMessage);
+                    consola.error(errorMessage) ;
                 }
             } else {
+                const title: string = getTitle(msg) ;
+                const embeddedMessage = new MessageEmbed()
+                    .setColor('#ff0000')
+                    .setTitle(title)
+                    .setAuthor({ 
+                        name: 'Guardian-bot', 
+                        // iconURL: './logo/Guardian-bot.png' , 
+                        url: "https://github.com/Saup21/Guardian-bot"
+                    })
+                    .addFields(
+                        { 
+                            name: 'BEWARE !!!', 
+                            value: msg
+                        }
+                    )
+                    .setTimestamp()
+                    .setFooter({ 
+                        text: 'Developed by Sauparna Gupta',
+                        iconURL: 'https://i.imgur.com/AfFp7pu.png' 
+                    });
                 message.reply({
-                    content: msg
+                    embeds: [embeddedMessage]
                 });
             }
         }
