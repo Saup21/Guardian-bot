@@ -1,14 +1,15 @@
-import consola from 'consola' ;
-import { getTitle } from './utils/getTitle';
-import Discord, { Intents , MessageEmbed } from 'discord.js';
-import config from './config/index'
+import Discord, { Intents } from 'discord.js';
+import config from './config/index';
 import isValidUrl from './scripts/isValidUrl';
 import checkMatchedUrl from './scripts/checkMatchedUrl';
+import getTitle from './utils/getTitle';
 import { Result } from './utils/types';
+import consola from 'consola';
 import { 
     ERROR, 
-    READY 
+    READY, 
 } from './utils/constants';
+import embedMessage from './utils/embedMessage';
 
 const client = new Discord.Client({
     intents: [
@@ -17,12 +18,11 @@ const client = new Discord.Client({
     ]
 });
 
-client.on('ready', async () => {
-    // console.log(READY);
-    consola.success(READY) ;
+client.on('ready', (): any => {
+    consola.success(READY);
 });
 
-client.on('messageCreate', async (message) => {
+client.on('messageCreate', async (message): Promise<any> => {
 
     if(message.author.bot) { 
         return;
@@ -73,25 +73,7 @@ client.on('messageCreate', async (message) => {
                 }
             } else {
                 const title: string = getTitle(msg);
-                const embeddedMessage = new MessageEmbed()
-                    .setColor(`#ff0000`)
-                    .setTitle(title)
-                    .setAuthor({ 
-                        name: `Guardian-bot`, 
-                        // iconURL: './logo/Guardian-bot.png' , 
-                        url: `https://github.com/Saup21/Guardian-bot`
-                    })
-                    .addFields(
-                        { 
-                            name: `BEWARE !!!`, 
-                            value: msg
-                        }
-                    )
-                    .setTimestamp()
-                    .setFooter({ 
-                        text: `Developed by Sauparna Gupta`,
-                        iconURL: `https://i.imgur.com/AfFp7pu.png` 
-                    });
+                const embeddedMessage: any = embedMessage(title, msg);
                 message.reply({
                     embeds: [embeddedMessage]
                 });

@@ -206,7 +206,7 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
   <tr>
     <td>
 	  <a href="https://github.com/Saup21/Guardian-bot/graphs/contributors">
-        <img src="https://contrib.rocks/image?repo=Saup21/Code-Sandbox" />
+        <img src="https://contrib.rocks/image?repo=Saup21/Guardian-bot" />
       </a>
     </td>
   </tr>

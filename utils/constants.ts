@@ -1,4 +1,11 @@
+// Bot Abouts
+
+export const GUARDIAN_BOT: string = `Guardian-bot`;
+export const BOT_ICON_URL: string = `https://raw.githubusercontent.com/Saup21/Guardian-bot/master/logo/Guardian-bot.png`;
+export const REPO_LINK: string = `https://github.com/Saup21/Guardian-bot`;
+
 // Ready Message
+
 export const READY: string = `Guardian-bot is ready to protect`;
 
 // Threat Message 
@@ -23,10 +30,23 @@ Please be cautious before opening the link.`;
 
 export const ERROR: string = `Something went wrong`;
 
-//Embedded Message Titles 
+// Embedded Message Titles 
 
-export const MALICIOUS_TITLE: string = "MALICIOUS LINK !!" ;
+export const MALICIOUS_TITLE: string = "MALICIOUS LINK(s) !!" ;
 export const NSFW_TITLE: string = "NSFW CONTENT !!" ;
 export const SPAM_TITLE: string = "SPAM !!" ;
 export const HIGH_RISK_TITLE: string = "RISKY LINK(s) !!" ;
 export const SUSPICIOUS_TITLE: string = "SUSPICIOUS LINK(s) !!"
+
+// Embedded Message Field name
+
+export const BEWARE: string = `BEWARE !!`;
+
+// Embedded Message Colors
+
+export const RED: any = `#ff0000`;
+
+// Developer Details
+
+export const DEVELOPER: string = `Developed by Sauparna Gupta`;
+export const DEVELOPER_ICON_URL = `https://avatars.githubusercontent.com/u/75141372?s=40&v=4`;
