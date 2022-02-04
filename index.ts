@@ -56,14 +56,19 @@ client.on('messageCreate', async (message): Promise<any> => {
         } else {
 
             if(threat_code === 999) {
-                console.log(msg);
+                consola.success(msg);
                 return;
             }
+
+            const title: string = getTitle(msg);
 
             if(threat_code === 101 || threat_code === 103 || threat_code === 104) {
                 try {
                     const deleted_msg = await message.delete();
-                    deleted_msg.channel.send(`${deleted_msg.author} ${msg}`);
+                    const embeddedMessage: any = embedMessage(title, msg, deleted_msg.author);
+                    deleted_msg.channel.send({
+                        embeds: [embeddedMessage]
+                    });
                 } catch (error) {
                     let errorMessage: string = ERROR;
                     if (error instanceof Error) {
@@ -72,8 +77,7 @@ client.on('messageCreate', async (message): Promise<any> => {
                     consola.error(errorMessage);
                 }
             } else {
-                const title: string = getTitle(msg);
-                const embeddedMessage: any = embedMessage(title, msg);
+                const embeddedMessage: any = embedMessage(title, msg, null);
                 message.reply({
                     embeds: [embeddedMessage]
                 });

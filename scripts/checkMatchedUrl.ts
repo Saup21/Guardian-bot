@@ -94,8 +94,6 @@ const checkMatchedUrl = async ( matches: string[] ): Promise<Result> => {
         try {
             const { data }: { data: Response } = await axios.post(uri,body);
 
-            // console.log(data);
-
             const { 
                 success, 
                 message 

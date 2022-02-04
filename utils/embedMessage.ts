@@ -1,6 +1,5 @@
 import { MessageEmbed } from "discord.js";
 import { 
-    BEWARE,
     BOT_ICON_URL,
     DEVELOPER,
     DEVELOPER_ICON_URL,
@@ -9,11 +8,10 @@ import {
     REPO_LINK
 } from "./constants";
 
-const embedMessage = (title: string, msg: string): any => {
+const embedMessage = (title: string, msg: string, author: any): any => {
 
     const embeddedMessage = new MessageEmbed()
         .setColor(RED)
-        .setTitle(title)
         .setAuthor({
             name: GUARDIAN_BOT, 
             iconURL: BOT_ICON_URL, 
@@ -21,8 +19,8 @@ const embedMessage = (title: string, msg: string): any => {
         })
         .addFields(
             { 
-                name: BEWARE, 
-                value: msg 
+                name: title, 
+                value: author === null ? msg : `${author} ${msg}`
             }
         )
         .setTimestamp()

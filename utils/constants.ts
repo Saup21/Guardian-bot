@@ -32,15 +32,11 @@ export const ERROR: string = `Something went wrong`;
 
 // Embedded Message Titles 
 
-export const MALICIOUS_TITLE: string = "MALICIOUS LINK(s) !!" ;
-export const NSFW_TITLE: string = "NSFW CONTENT !!" ;
-export const SPAM_TITLE: string = "SPAM !!" ;
-export const HIGH_RISK_TITLE: string = "RISKY LINK(s) !!" ;
-export const SUSPICIOUS_TITLE: string = "SUSPICIOUS LINK(s) !!"
-
-// Embedded Message Field name
-
-export const BEWARE: string = `BEWARE !!`;
+export const MALICIOUS_TITLE: string = `MALICIOUS LINK(s) !!`;
+export const NSFW_TITLE: string = `NSFW CONTENT AHEAD !!`;
+export const SPAM_TITLE: string = `SPAM LINK(s) !!`;
+export const HIGH_RISK_TITLE: string = `RISKY LINK(s) !!`;
+export const SUSPICIOUS_TITLE: string = `SUSPICIOUS LINK(s) !!`;
 
 // Embedded Message Colors
 
