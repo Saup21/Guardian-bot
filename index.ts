@@ -7,6 +7,7 @@ import { Result } from './utils/types';
 import consola from 'consola';
 import { 
     ERROR, 
+    OUT_OF_CREDIT_TITLE, 
     READY, 
 } from './utils/constants';
 import embedMessage from './utils/embedMessage';
@@ -47,10 +48,11 @@ client.on('messageCreate', async (message): Promise<any> => {
         
         if(!success) {
             if(error) {
-                consola.error(msg) ;
+                consola.error(msg);
             } else {
+                const embeddedMessage: any = embedMessage(OUT_OF_CREDIT_TITLE, msg, null);
                 message.reply({
-                    content: msg
+                    embeds: [embeddedMessage]
                 });
             }
         } else {

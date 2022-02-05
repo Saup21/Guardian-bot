@@ -11,10 +11,14 @@ export const READY: string = `Guardian-bot is ready to protect`;
 // Threat Message 
 
 export const MALICIOUS_LINK: string = `sent malicious link(s).`;
-export const NSFW: string = `The above link(s) might contain NSFW contents. Please be cautious before opening the link.`;
-export const SPAM: string = `The above link(s) might be spam. Please be cautious before opening the link.`;
-export const SUSPICIOUS: string = `The above link(s) is/are suspicious. Please be cautious before opening the link.`;
-export const HIGH_RISK: string = `The above link(s) has/have a high risk score. Please be cautious before opening the link.`;
+export const NSFW: string = `The above link(s) might contain NSFW contents. 
+Please be cautious before opening the link.`;
+export const SPAM: string = `The above link(s) might be spam. 
+Please be cautious before opening the link.`;
+export const SUSPICIOUS: string = `The above link(s) is/are suspicious. 
+Please be cautious before opening the link.`;
+export const HIGH_RISK: string = `The above link(s) has/have a high risk score. 
+Please be cautious before opening the link.`;
 export const SAFE: string = `The link(s) is/are safe to open.`;
 
 // No Credit Message from API
@@ -23,8 +27,8 @@ export const OUT_OF_CREDIT_API: string = `You have insufficient credits to make 
 
 // No Credit Score 
 
-export const OUT_OF_CREDIT: string = `We couldn't verify the link cause we ran out of credits for the month. 
-Please be cautious before opening the link.`;
+export const OUT_OF_CREDIT: string = `We couldn't verify the link(s) cause we ran out of credits for the month. 
+Please be cautious before opening any link.`;
 
 // Error Message
 
@@ -37,6 +41,7 @@ export const NSFW_TITLE: string = `NSFW CONTENT AHEAD !!`;
 export const SPAM_TITLE: string = `SPAM LINK(s) !!`;
 export const HIGH_RISK_TITLE: string = `RISKY LINK(s) !!`;
 export const SUSPICIOUS_TITLE: string = `SUSPICIOUS LINK(s) !!`;
+export const OUT_OF_CREDIT_TITLE: string = `WE ARE OUT OF CREDIT 😞`;
 
 // Embedded Message Colors
 
