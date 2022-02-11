@@ -4,14 +4,13 @@ import {
     DEVELOPER,
     DEVELOPER_ICON_URL,
     GUARDIAN_BOT, 
-    RED, 
     REPO_LINK
 } from "./constants";
 
-const embedMessage = (title: string, msg: string, author: any): any => {
+const embedMessage = (color: any, title: string, msg: string, author: any): any => {
 
     const embeddedMessage = new MessageEmbed()
-        .setColor(RED)
+        .setColor(color)
         .setAuthor({
             name: GUARDIAN_BOT, 
             iconURL: BOT_ICON_URL, 

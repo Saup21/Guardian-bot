@@ -38,11 +38,13 @@ client.on('messageCreate', async (message): Promise<any> => {
             success,
             threat_code,
             msg,
+            color,
             error
         }: {
             success: boolean;
             threat_code?: number;
             msg: string;
+            color?: any;
             error?: boolean 
         } = result;
         
@@ -50,7 +52,7 @@ client.on('messageCreate', async (message): Promise<any> => {
             if(error) {
                 consola.error(msg);
             } else {
-                const embeddedMessage: any = embedMessage(OUT_OF_CREDIT_TITLE, msg, null);
+                const embeddedMessage: any = embedMessage(color, OUT_OF_CREDIT_TITLE, msg, null);
                 message.reply({
                     embeds: [embeddedMessage]
                 });
@@ -67,7 +69,7 @@ client.on('messageCreate', async (message): Promise<any> => {
             if(threat_code === 101 || threat_code === 103 || threat_code === 104) {
                 try {
                     const deleted_msg = await message.delete();
-                    const embeddedMessage: any = embedMessage(title, msg, deleted_msg.author);
+                    const embeddedMessage: any = embedMessage(color, title, msg, deleted_msg.author);
                     deleted_msg.channel.send({
                         embeds: [embeddedMessage]
                     });
@@ -79,7 +81,7 @@ client.on('messageCreate', async (message): Promise<any> => {
                     consola.error(errorMessage);
                 }
             } else {
-                const embeddedMessage: any = embedMessage(title, msg, null);
+                const embeddedMessage: any = embedMessage(color, title, msg, null);
                 message.reply({
                     embeds: [embeddedMessage]
                 });

@@ -46,6 +46,11 @@ export const OUT_OF_CREDIT_TITLE: string = `WE ARE OUT OF CREDIT 😞`;
 // Embedded Message Colors
 
 export const RED: any = `#ff0000`;
+export const PURPLE: any = `#cc00ff`;
+export const YELLOW: any = `#ffcc00`;
+export const AQUA: any = `#0099cc`;
+export const ORANGE: any = `#ff5050`;
+export const WHITE: any = `#f0f8ff`;
 
 // Developer Details
 

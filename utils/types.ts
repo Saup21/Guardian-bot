@@ -45,5 +45,6 @@ export type Result = {
     success: boolean;
     msg: string;
     threat_code?: number;
+    color?: any;
     error?: boolean;
 };

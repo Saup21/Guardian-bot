@@ -9,7 +9,13 @@ import {
     SAFE, 
     OUT_OF_CREDIT,
     OUT_OF_CREDIT_API, 
-    ERROR
+    ERROR,
+    RED,
+    AQUA,
+    PURPLE,
+    YELLOW,
+    ORANGE,
+    WHITE
 } from "../utils/constants";
 import { 
     APIBody, 
@@ -25,8 +31,17 @@ const typeOfThreat = (data: Response): Result => {
         error: false
     };
 
-    // unsafe, spamming, malware, phishing, suspicious, adult, risk_score, no-risk
-    // threat_code: 101, 102, 103, 104, 105, 106, 107, 999
+    /* 
+        threat_type, threat_color, threat_code: 
+        unsafe -> red -> 101, 
+        spamming -> purple -> 102, 
+        malware -> red -> 103, 
+        phishing -> red -> 104, 
+        suspicious -> yellow -> 105, 
+        adult -> aqua -> 106, 
+        risk_score -> orange -> 107, 
+        no-risk -> 999 
+    */
 
     const { 
         unsafe, 
@@ -49,24 +64,31 @@ const typeOfThreat = (data: Response): Result => {
     if ( unsafe ) {
         result.threat_code = 101;
         result.msg = MALICIOUS_LINK;
+        result.color = RED;
     } else if ( malware ) {
         result.threat_code = 103;
         result.msg = MALICIOUS_LINK;
+        result.color = RED;
     } else if ( phishing ) {
         result.threat_code = 104;
         result.msg = MALICIOUS_LINK;
+        result.color = RED;
     } else if( adult ) {
         result.threat_code = 106;
         result.msg = NSFW;
+        result.color = AQUA;
     } else if ( spamming ) {
         result.threat_code = 102;
         result.msg = SPAM;
+        result.color = PURPLE;
     } else if ( suspicious ) {
         result.threat_code = 105;
         result.msg = SUSPICIOUS;
+        result.color = YELLOW;
     } else if ( risk_score !== undefined && risk_score > 85 ) {
         result.threat_code = 107;
         result.msg = HIGH_RISK;
+        result.color = ORANGE;
     } else {
         result.threat_code = 999;
         result.msg = SAFE;
@@ -107,6 +129,7 @@ const checkMatchedUrl = async ( matches: string[] ): Promise<Result> => {
                     return {
                         success: false,
                         msg: OUT_OF_CREDIT,
+                        color: WHITE,
                         error: false
                     };
                 } else {
