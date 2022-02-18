@@ -12,7 +12,7 @@
   "author": "Sauparna Gupta",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.25.0",
+    "axios": "^0.26.0",
     "consola": "^2.15.3",
     "discord.js": "^13.6.0",
     "dotenv": "^14.3.2",
